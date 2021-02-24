@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>О пользователе</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"/>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div class="container mt-5">
+    <h1>Пользователь</h1>
+    <div  class="alert alert-info mt-2">
+        <form action="../blog-add" method="post">
+            <input type="text" name="login" th:value="${testUser.login}" class="form-control" />
+            <input type="text" name="name" th:value="${testUser.name}" class="form-control" />
+            <input type="text" name="surname" th:value="${testUser.surname}" class="form-control" />
+            <input type="text" name="email" th:value="${testUser.email}" class="form-control" />
+            <button type="submit" class="btn btn-success" name="save">Сохранить</button>
+        </form>
+    </div>
+</div>
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>

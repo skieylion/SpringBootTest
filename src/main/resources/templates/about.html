@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>О нас</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"/>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div class="container mt-5">
+    <h1>О нас</h1>
+    <div th:each="el:${testUsers}" class="alert alert-info mt-2">
+        <h3 th:text="${el.login}"></h3>
+        <p th:text="${el.email}"></p>
+        <form action="user/edit">
+            <input type="hidden" name="login" th:value="${el.login}" />
+            <button type="submit" class="btn btn-success">Редактировать</button>
+        </form>
+        <form action="user/delete">
+            <input type="hidden" name="login" th:value="${el.login}" />
+            <button type="submit" class="btn btn-success">Удалить</button>
+        </form>
+    </div>
+</div>
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>
